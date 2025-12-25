@@ -1,0 +1,158 @@
+/**
+ * DPA-I UNIFIED STYLESHEET
+ * Optimized for Daraima’s Parallel Agents
+ */
+
+/* 1. Main Container & Layout */
+#dpa-board-container {
+    max-width: 850px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.dpa-header {
+    background: #0f172a; /* Deep Slate - Professional */
+    padding: 20px 25px;
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.dpa-status-dot { 
+    width: 12px; height: 12px; 
+    background: #10b981; 
+    border-radius: 50%; 
+    box-shadow: 0 0 10px #10b981; 
+    animation: pulse 2s infinite;
+}
+
+#dpa-chat-stream {
+    height: 600px;
+    overflow-y: auto;
+    padding: 30px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+}
+
+/* 2. Unified Message Architecture */
+.dpa-message {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+    max-width: 88%;
+    transition: all 0.3s ease;
+}
+
+.dpa-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.dpa-bubble {
+    padding: 18px 22px;
+    border-radius: 4px 20px 20px 20px;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #1e293b;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* 3. AGENT IDENTITY VECTORS (Case-Insensitive Targetting) */
+
+/* Daraima (Lead) */
+.agent-daraima .dpa-avatar { background: #1e293b !important; color: #fff !important; }
+.agent-daraima .dpa-bubble { background: #f1f5f9 !important; border: 1px solid #e2e8f0 !important; font-weight: 500; }
+
+/* Justice (CFO) */
+.agent-justice .dpa-avatar { background: #dcfce7 !important; border: 1px solid #86efac !important; }
+.agent-justice .dpa-bubble { background: #f0fdf4 !important; border: 1px solid #dcfce7 !important; }
+
+/* Emma (Growth) */
+.agent-emma .dpa-avatar { background: #fce7f3 !important; border: 1px solid #f9a8d4 !important; }
+.agent-emma .dpa-bubble { background: #fdf2f8 !important; border: 1px solid #fce7f3 !important; }
+
+/* Moses (CTO) */
+.agent-moses .dpa-avatar { background: #f1f5f9 !important; border: 1px solid #cbd5e1 !important; }
+.agent-moses .dpa-bubble { background: #f8fafc !important; border: 1px solid #f1f5f9 !important; }
+
+/* Clovet (Architect) */
+.agent-clovet .dpa-avatar { background: #fef9c3 !important; border: 1px solid #fde047 !important; }
+.agent-clovet .dpa-bubble { background: #fefce8 !important; border: 1px solid #fef9c3 !important; }
+
+/* User / Client Message */
+.dpa-message.user-message { align-self: flex-end; flex-direction: row-reverse; }
+.dpa-message.user-message .dpa-bubble {
+    background: #0f172a !important;
+    color: #ffffff !important;
+    border-radius: 20px 4px 20px 20px;
+}
+
+/* 4. Elements & Animations */
+.typing-bubble { 
+    font-style: italic; 
+    color: #64748b; 
+    font-size: 13px; 
+    margin-bottom: 12px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    padding-left: 64px;
+}
+
+.dot-anim { width: 5px; height: 5px; background: #64748b; border-radius: 50%; animation: blink 1.4s infinite; }
+
+@keyframes blink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+/* 5. Scorecard Table (The Napkin) */
+.dpa-bubble table { 
+    width: 100%; 
+    border-collapse: separate; 
+    border-spacing: 0;
+    margin-top: 15px; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    border: 1px solid #e2e8f0;
+}
+.dpa-bubble th, .dpa-bubble td { padding: 12px; border: 0.5px solid #e2e8f0; }
+.dpa-bubble th { background: #f8fafc; font-weight: 700; color: #475569; }
+
+/* 6. Input Controls */
+.dpa-input-area { padding: 25px; background: #fff; border-top: 1px solid #f1f5f9; display: flex; gap: 15px; }
+#dpa-user-pitch { 
+    flex-grow: 1; 
+    padding: 15px; 
+    border: 1px solid #cbd5e1; 
+    border-radius: 12px; 
+    resize: none; 
+    font-family: inherit; 
+    font-size: 15px;
+}
+#dpa-submit-btn { 
+    background: #0f172a; 
+    color: #fff; 
+    border: none; 
+    padding: 0 30px; 
+    border-radius: 12px; 
+    cursor: pointer; 
+    font-weight: 600;
+    transition: background 0.2s;
+}
+#dpa-submit-btn:hover { background: #334155; }
